@@ -1,0 +1,15 @@
+{
+  "mysql": {
+    "host": "",
+    "user": "",
+    "password": "",
+    "database": ""
+  },
+  "shop": {
+    "name": "",
+    "url": ""
+  },
+  "export": {
+    "file": ""
+  }
+}
