@@ -10,7 +10,7 @@ export default class Offer extends Component {
             </offer>
         );
     }
-};
+}
 
 Offer.propTypes = {
     id: PropTypes.number.isRequired,

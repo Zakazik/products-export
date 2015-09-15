@@ -28,7 +28,7 @@ export default class Catalog extends Component {
             </yml_catalog>
         );
     }
-};
+}
 
 Catalog.propTypes = {
     name: PropTypes.string.isRequired,

@@ -10,8 +10,12 @@ export default class Price {
 
             var rate = 1;
             switch (currency) {
-                case 1: rate = exchange.usd; break;
-                case 3: rate = exchange.eur; break;
+            case 1:
+                rate = exchange.usd;
+                break;
+            case 3:
+                rate = exchange.eur;
+                break;
             }
 
             return Math.ceil(price * rate);
@@ -34,7 +38,7 @@ export default class Price {
                 resolve(exchange);
             }).catch((error) => {
                 reject(error);
-            })
+            });
         });
     }
 }

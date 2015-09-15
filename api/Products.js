@@ -20,7 +20,7 @@ export default class Products {
                             name: title,
                             price: yield Price.get(product.promo_price, product.currency),
                             available: (product.mit_pro == 1)
-                        })
+                        });
                     }
 
                     resolve(result);
@@ -29,7 +29,7 @@ export default class Products {
                 });
             }).catch((error) => {
                 reject(error);
-            })
+            });
         });
     }
 }
