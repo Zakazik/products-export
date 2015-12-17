@@ -1,6 +1,6 @@
 import fs from 'fs';
 import co from 'co';
-import React from 'react';
+import ReactDOM from 'react-dom/server';
 import Config from 'config';
 import logger from './lib/logger';
 import Catalog from './components/Catalog';
@@ -20,7 +20,7 @@ logger.info('Export START');
 co(function*(){
     const products = yield ProductsAPI.getAll();
 
-    const catalog = React.renderToStaticMarkup(
+    const catalog = ReactDOM.renderToStaticMarkup(
         <Catalog {...Config.get('shop')} offers={products} />
     );
 

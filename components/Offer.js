@@ -1,6 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Offer extends Component {
+    static propTypes = {
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        currencyId: PropTypes.string,
+        available: PropTypes.bool
+    };
+
+    static defaultProps = {
+        available: true,
+        currencyId: 'UAH'
+    };
+
     render() {
         return (
             <offer id={this.props.id} available={this.props.available}>
@@ -11,16 +24,3 @@ export default class Offer extends Component {
         );
     }
 }
-
-Offer.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    currencyId: PropTypes.string,
-    available: PropTypes.bool
-};
-
-Offer.defaultProps = {
-    available: true,
-    currencyId: 'UAH'
-};

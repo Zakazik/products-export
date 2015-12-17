@@ -3,6 +3,12 @@ import Offer from './Offer';
 import Moment from 'moment';
 
 export default class Catalog extends Component {
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        offers: PropTypes.array.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -29,9 +35,3 @@ export default class Catalog extends Component {
         );
     }
 }
-
-Catalog.propTypes = {
-    name: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    offers: PropTypes.array.isRequired
-};
