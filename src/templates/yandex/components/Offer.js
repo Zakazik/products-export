@@ -7,12 +7,12 @@ export default class Offer extends Component {
         price: PropTypes.number.isRequired,
         currencyId: PropTypes.string,
         available: PropTypes.bool
-    };
+    }
 
     static defaultProps = {
         available: true,
         currencyId: 'UAH'
-    };
+    }
 
     render() {
         return (

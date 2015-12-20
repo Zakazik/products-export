@@ -1,4 +1,4 @@
-import db from '../lib/mysql';
+import db from 'utils/mysql';
 import co from 'co';
 
 let exchange = null;

@@ -1,10 +1,8 @@
-import Debug from 'debug';
-const debug = Debug('app');
-
 import * as templates from 'templates';
 import Config from 'config';
 import Logger from 'utils/logger';
 import Writer from 'utils/writer';
+import ShopApi from 'api/Shop';
 
 export default class Exporter {
     static async run(config) {
@@ -15,11 +13,11 @@ export default class Exporter {
         const categories = [];
 
         // 2. Get products
-        const products = [];
+        const products = await ShopApi.getProducts();
 
         // 3. Export with all templates
         const exports = config.exports;
-        exports.forEach((tpl) => {
+        for (let tpl of exports) {
             if (!templates.hasOwnProperty(tpl.id)) {
                 Logger.error(`Template "${tpl.id}" not found`);
                 return;
@@ -33,12 +31,11 @@ export default class Exporter {
                     products
                 });
 
-                //Writer.write(tpl.file, xml);
-                debug(xml);
+                await Writer.write(tpl.file, xml);
                 Logger.info(`Export to ${tpl.id} completed`);
             } catch (error) {
                 Logger.error(`Export to ${tpl.id} error: ${error.message}`);
             }
-        });
+        }
     }
 }

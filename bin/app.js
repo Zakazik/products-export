@@ -1,3 +1,7 @@
+/**
+ * @file Application mount point
+ * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
+ */
 import Config from 'config';
 import Logger from 'utils/logger';
 import Exporter from 'exporter';

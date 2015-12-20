@@ -1,14 +1,8 @@
-import Debug from 'debug';
-const debug = Debug('app');
-
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import Catalog from './components/Catalog';
 
 export function yandex({ shop = {}, categories = [], products = [] } = {}) {
-    debug(shop);
-    debug(products);
-
     const catalog = ReactDOM.renderToStaticMarkup(
         <Catalog { ...shop } offers={ products } />
     );

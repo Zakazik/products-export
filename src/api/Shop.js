@@ -2,8 +2,8 @@ import db from 'utils/mysql';
 import Price from './Price';
 import co from 'co';
 
-export default class Products {
-    static getAll() {
+export default class Shop {
+    static getProducts() {
         return new Promise((resolve, reject) => {
             const query = 'SELECT p.*, c.pro_cat_title_one' +
                           '  FROM products p' +

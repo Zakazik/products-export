@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Offer from './Offer';
+import OfferList from './OfferList';
 import Moment from 'moment';
 
 export default class Catalog extends Component {
@@ -18,20 +18,12 @@ export default class Catalog extends Component {
     }
 
     render() {
-        const offers = this.props.offers.map((offer, i) => {
-            return (
-                <Offer { ...offer } key={ i } />
-            );
-        });
-
         return (
-            <yml_catalog date={this.state.date}>
+            <yml_catalog date={ this.state.date }>
                 <shop>
-                    <name>{this.props.name}</name>
-                    <url>{this.props.url}</url>
-                    <offers>
-                        { offers }
-                    </offers>
+                    <name>{ this.props.name }</name>
+                    <url>{ this.props.url }</url>
+                    <OfferList offers={ this.props.offers } />
                 </shop>
             </yml_catalog>
         );
