@@ -11,7 +11,7 @@ ReactInjection.DOMProperty.injectDOMPropertyConfig({
     }
 });
 
-export function yandex({ shop = {}, categories = [], products = [] } = {}) {
+export function yandex({ shop = {}, products = [] } = {}) {
     const catalog = ReactDOM.renderToStaticMarkup(
         <Catalog { ...shop } offers={ products } />
     );

@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "better-npm-run start",
-    "lint": "eslint -c ./.eslintrc ."
+    "lint": "eslint ./bin ./src"
   },
   "betterScripts": {
     "start": {

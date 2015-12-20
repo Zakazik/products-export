@@ -20,12 +20,12 @@
             2,
             "always"
         ],
-        "react-in-jsx-scope": 1
+        "react/react-in-jsx-scope": 1,
+        "react/jsx-uses-react": 1
     },
     "env": {
         "es6": true,
-        "node": true,
-        "browser": true
+        "node": true
     },
     "extends": "eslint:recommended",
     "ecmaFeatures": {
