@@ -18,17 +18,19 @@ export default class Catalog extends Component {
     }
 
     render() {
+        const offers = this.props.offers.map((offer, i) => {
+            return (
+                <Offer { ...offer } key={ i } />
+            );
+        });
+
         return (
             <yml_catalog date={this.state.date}>
                 <shop>
                     <name>{this.props.name}</name>
                     <url>{this.props.url}</url>
                     <offers>
-                        {this.props.offers.map(function(offer, i){
-                            return (
-                                <Offer {...offer} key={i} />
-                            );
-                        })}
+                        { offers }
                     </offers>
                 </shop>
             </yml_catalog>

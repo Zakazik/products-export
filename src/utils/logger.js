@@ -2,7 +2,7 @@ import Winston from 'winston';
 import Chalk from 'chalk';
 import Moment from 'moment';
 
-const logger = new (Winston.Logger)({
+const Logger = new (Winston.Logger)({
     transports: [
         new (Winston.transports.Console)({
             timestamp: function() {
@@ -24,4 +24,4 @@ const logger = new (Winston.Logger)({
     ]
 });
 
-export default logger;
+export default Logger;
