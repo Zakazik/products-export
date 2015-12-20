@@ -31,6 +31,7 @@ export default class Exporter {
                     products
                 });
 
+                Logger.info(`Writing to file ${tpl.file}`);
                 await Writer.write(tpl.file, xml);
                 Logger.info(`Export to ${tpl.id} completed`);
             } catch (error) {

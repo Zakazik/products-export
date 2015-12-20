@@ -1,25 +1,22 @@
 import db from 'utils/mysql';
-import co from 'co';
 
 let exchange = null;
 
 export default class Price {
-    static get(price, currency) {
-        return co(function*(){
-            let exchange = yield Price.getExchange();
+    static async get(price, currency) {
+        let exchange = await Price.getExchange();
 
-            var rate = 1;
-            switch (currency) {
-            case 1:
-                rate = exchange.usd;
-                break;
-            case 3:
-                rate = exchange.eur;
-                break;
-            }
+        var rate = 1;
+        switch (currency) {
+        case 1:
+            rate = exchange.usd;
+            break;
+        case 3:
+            rate = exchange.eur;
+            break;
+        }
 
-            return Math.ceil(price * rate);
-        });
+        return Math.ceil(price * rate);
     }
 
     static getExchange() {
