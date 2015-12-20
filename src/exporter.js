@@ -1,3 +1,7 @@
+/**
+ * @file Exporter module
+ * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
+ */
 import * as templates from 'templates';
 import Config from 'config';
 import Logger from 'utils/logger';

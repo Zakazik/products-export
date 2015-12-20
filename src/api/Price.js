@@ -1,8 +1,19 @@
+/**
+ * @file Price api
+ * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
+ */
 import db from 'utils/mysql';
 
 let exchange = null;
 
 export default class Price {
+    /**
+     * Calculate UAH price of product
+     *
+     * @param {number} price Product price in original currency
+     * @param {number} currency Currency code (1 – USD, 2 – UAH, 3 – EUR)
+     * @returns {number} Price in UAH
+     */
     static async get(price, currency) {
         let exchange = await Price.getExchange();
 
@@ -19,6 +30,11 @@ export default class Price {
         return Math.ceil(price * rate);
     }
 
+    /**
+     * Get current exchange rate
+     *
+     * @returns {Promise}
+     */
     static getExchange() {
         return new Promise((resolve, reject) => {
             if (exchange != null) {

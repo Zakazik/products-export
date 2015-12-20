@@ -1,7 +1,16 @@
+/**
+ * @file Shop api
+ * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
+ */
 import db from 'utils/mysql';
 import Price from './Price';
 
 export default class Shop {
+    /**
+     * Get all products
+     *
+     * @returns {Promise}
+     */
     static getProducts() {
         return new Promise((resolve, reject) => {
             const query = 'SELECT p.*, c.pro_cat_title_one' +
