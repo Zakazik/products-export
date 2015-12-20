@@ -3,13 +3,14 @@
  * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
  */
 import * as templates from 'templates';
-import Config from 'config';
 import Logger from 'utils/logger';
 import Writer from 'utils/writer';
 import ShopApi from 'api/Shop';
 
 export default class Exporter {
     static async run(config) {
+        Logger.info('Export START');
+
         // 0. Shop info
         const shop = config.shop;
 
@@ -24,7 +25,7 @@ export default class Exporter {
         for (let tpl of exports) {
             if (!templates.hasOwnProperty(tpl.id)) {
                 Logger.error(`Template "${tpl.id}" not found`);
-                return;
+                continue;
             }
 
             Logger.info(`Exporting to ${tpl.id}`);
