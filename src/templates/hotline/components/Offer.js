@@ -20,7 +20,7 @@ export default class Offer extends Component {
         warranty: PropTypes.shape({
             count: PropTypes.number.isRequired,
             unit: PropTypes.string.isRequired
-        }).isRequired,
+        }),
         vendor: PropTypes.string.isRequired,
         country: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
@@ -35,9 +35,9 @@ export default class Offer extends Component {
         const { id, code, category, vendor, description, url, image, available, name, price, warranty, country } = this.props;
         const elCode = (code !== null) ? (<code>{ code }</code>) : null;
         const stock  = available ? 'В наличии' : 'Под заказ';
-        const elWarranty = (warranty.unit == 'days')
+        const elWarranty = (warranty === null) ? null : ((warranty.unit == 'days')
             ? (<guarantee type="manufacturer" unit="days">{ warranty.count }</guarantee>)
-            : (<guarantee type="manufacturer">{ warranty.count }</guarantee>);
+            : (<guarantee type="manufacturer">{ warranty.count }</guarantee>));
 
         return (
             <item>
