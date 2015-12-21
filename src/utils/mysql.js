@@ -26,6 +26,10 @@ export default class DB {
 
     static async queryOne(query) {
         const result = await this.query(query);
-        return result[0];
+        if (result.length > 0) {
+            return result[0];
+        }
+
+        return null;
     }
 }

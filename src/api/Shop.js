@@ -73,10 +73,16 @@ export default class Shop {
     static async getProp(propId, productId, catId) {
         const propQuery = `SELECT id FROM cat_properties WHERE pro_cat_id = ${catId} AND parent_id = ${propId}`;
         const prop      = await db.queryOne(propQuery);
+        if (prop === null) {
+            return null;
+        }
         const propRow   = 'p' + pad(prop.id, 3);
         const propTable = 'pro' + pad(catId, 3);
         const query     = `SELECT d.value FROM ${propTable} pp LEFT JOIN dictionary d ON d.id = pp.${propRow} WHERE pp.product_id = ${productId}`;
         const propValue = await db.queryOne(query);
+        if (propValue === null) {
+            return null;
+        }
 
         return propValue.value;
     }
