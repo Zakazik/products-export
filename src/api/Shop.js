@@ -2,9 +2,6 @@
  * @file Shop api
  * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
  */
-import Debug from 'debug';
-const debug = Debug('app');
-
 import db from 'utils/mysql';
 import pad from 'utils/pad';
 import Logger from 'utils/logger';
@@ -56,17 +53,21 @@ export default class Shop {
             } catch (error) {
                 Logger.error(`Product "${product.id}": ${error.message}`);
             }
-
-            if (result.length > 20) {
-                break;
-            }
         }
 
         return result;
     }
 
-    static getCategories() {
-
+    static async getCategories() {
+        const query = 'SELECT * FROM pro_categories WHERE visible = "Y" ORDER BY id ASC';
+        const flatList = await db.query(query);
+        return flatList.map((category) => {
+            return {
+                id: category.id,
+                parent: category.pro_cat_id,
+                title: category.pro_cat_title
+            };
+        });
     }
 
     static async getProp(propId, productId, catId) {

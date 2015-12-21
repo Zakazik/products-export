@@ -2,9 +2,6 @@
  * @file Exporter module
  * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
  */
-import Debug from 'debug';
-const debug = Debug('app');
-
 import * as templates from 'templates';
 import Logger from 'utils/logger';
 import Writer from 'utils/writer';
@@ -18,7 +15,7 @@ export default class Exporter {
         const shop = config.shop;
 
         // 1. Get categories
-        const categories = [];
+        const categories = await ShopApi.getCategories();
 
         // 2. Get products
         const products = await ShopApi.getProducts();
