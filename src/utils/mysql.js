@@ -23,4 +23,9 @@ export default class DB {
             });
         });
     }
+
+    static async queryOne(query) {
+        const result = await this.query(query);
+        return result[0];
+    }
 }

@@ -2,6 +2,9 @@
  * @file Exporter module
  * @author Sergey Sadovoi [serg.sadovoi@gmail.com]
  */
+import Debug from 'debug';
+const debug = Debug('app');
+
 import * as templates from 'templates';
 import Logger from 'utils/logger';
 import Writer from 'utils/writer';
