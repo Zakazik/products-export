@@ -7,6 +7,7 @@ import pad from 'utils/pad';
 import Logger from 'utils/logger';
 import Price from './Price';
 import Config from 'config';
+import S from 'string';
 
 export default class Shop {
     /**
@@ -34,7 +35,7 @@ export default class Shop {
                         full: title
                     },
                     description: {
-                        short: (product.block_heading === '') ? null : product.block_heading
+                        short: (product.block_heading === '') ? null : S(product.block_heading).stripTags().s
                     },
                     url,
                     image,
