@@ -109,6 +109,6 @@ export default class Shop {
             };
         }
 
-        throw new Error(`Invalid warranty value "${raw}"`);
+        return null;
     }
 }
