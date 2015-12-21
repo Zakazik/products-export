@@ -7,7 +7,14 @@
   },
   "shop": {
     "name": "",
-    "url": ""
+    "url": "",
+    "params": {
+      "vendorId": 0,
+      "countryId": 0,
+      "warrantyId": 0,
+      "productUrlTpl": "",
+      "imageUrlTpl": ""
+    }
   },
   "exports": [
     {
