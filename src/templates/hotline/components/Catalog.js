@@ -5,9 +5,9 @@ import OfferList from './OfferList';
 export default class Catalog extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
+        hotlineId: PropTypes.number.isRequired,
         offers: PropTypes.array.isRequired
-    };
+    }
 
     constructor(props) {
         super(props);
@@ -18,14 +18,15 @@ export default class Catalog extends Component {
     }
 
     render() {
+        const { name, hotlineId, offers } = this.props;
+
         return (
-            <yml_catalog date={ this.state.date }>
-                <shop>
-                    <name>{ this.props.name }</name>
-                    <url>{ this.props.url }</url>
-                    <OfferList offers={ this.props.offers } />
-                </shop>
-            </yml_catalog>
+            <price>
+                <date>{ this.state.date }</date>
+                <firmName>{ name }</firmName>
+                <firmId>{ hotlineId }</firmId>
+                <OfferList offers={ offers } />
+            </price>
         );
     }
 }

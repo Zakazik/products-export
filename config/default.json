@@ -8,6 +8,7 @@
   "shop": {
     "name": "",
     "url": "",
+    "hotlineId": 0,
     "params": {
       "vendorId": 0,
       "countryId": 0,
