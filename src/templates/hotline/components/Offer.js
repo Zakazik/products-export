@@ -17,10 +17,7 @@ export default class Offer extends Component {
             id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired
         }).isRequired,
-        warranty: PropTypes.shape({
-            count: PropTypes.number.isRequired,
-            unit: PropTypes.string.isRequired
-        }),
+        warranty: PropTypes.object,
         vendor: PropTypes.string.isRequired,
         country: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
