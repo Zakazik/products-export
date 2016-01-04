@@ -5,25 +5,20 @@ import OfferList from './OfferList';
 export default class Catalog extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         offers: PropTypes.array.isRequired
     };
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            date: Moment().format('YYYY-MM-DD HH:mm')
-        };
-    }
-
     render() {
+        const { name, date, url, offers } = this.props;
+
         return (
-            <yml_catalog date={ this.state.date }>
+            <yml_catalog date={ date }>
                 <shop>
-                    <name>{ this.props.name }</name>
-                    <url>{ this.props.url }</url>
-                    <OfferList offers={ this.props.offers } />
+                    <name>{ name }</name>
+                    <url>{ url }</url>
+                    <OfferList offers={ offers } />
                 </shop>
             </yml_catalog>
         );

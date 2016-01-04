@@ -11,9 +11,13 @@ ReactInjection.DOMProperty.injectDOMPropertyConfig({
     }
 });
 
-export function yandex({ shop = {}, products = [] } = {}) {
+export function yandex({ shop = {}, products = [], date = '' } = {}) {
+    if (date == '') {
+        date = Moment().format('YYYY-MM-DD HH:mm');
+    }
+
     const catalog = ReactDOM.renderToStaticMarkup(
-        <Catalog { ...shop } offers={ products } />
+        <Catalog { ...shop } offers={ products } date={ date } />
     );
 
     return '<?xml version="1.0" encoding="utf-8"?>' +

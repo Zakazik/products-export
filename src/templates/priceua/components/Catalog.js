@@ -6,23 +6,16 @@ import OfferList from './OfferList';
 export default class Catalog extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
         offers: PropTypes.array.isRequired,
         categories: PropTypes.array.isRequired
     }
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            date: Moment().format('YYYY-MM-DD HH:mm')
-        };
-    }
-
     render() {
-        const { name, offers, categories } = this.props;
+        const { name, date, offers, categories } = this.props;
 
         return (
-            <price date={ this.state.date }>
+            <price date={ date }>
                 <name>{ name }</name>
                 <CategoryList categories={ categories } />
                 <OfferList offers={ offers } />

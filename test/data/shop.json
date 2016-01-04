@@ -1,0 +1,12 @@
+{
+  "name": "Магазин",
+  "url": "http://www.com",
+  "hotlineId": 22,
+  "params": {
+    "vendorId": 18,
+    "countryId": 19,
+    "warrantyId": 22,
+    "productUrlTpl": "http://zakazik.ua/products/details/{code}.html",
+    "imageUrlTpl": "http://zakazik.ua/images/products{file}"
+  }
+}

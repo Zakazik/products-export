@@ -14,6 +14,7 @@
   "scripts": {
     "start": "better-npm-run start",
     "dev": "better-npm-run dev",
+    "test": "mocha",
     "lint": "eslint ./bin ./src"
   },
   "betterScripts": {

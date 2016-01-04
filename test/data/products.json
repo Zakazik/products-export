@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "code": "code-1",
+    "name": {
+      "short": "Product 1 title",
+      "full": "Product 1 full title"
+    },
+    "description": {
+      "short": "Short description 1"
+    },
+    "url": "http://google.com/1.html",
+    "image": "http://google.com/1.jpg",
+    "price": {
+      "old": 120,
+      "current": 100
+    },
+    "category": {
+      "id": 1,
+      "title": "Category title"
+    },
+    "available": true,
+    "vendor": "Vendor name",
+    "country": "Country name",
+    "warranty": {
+      "unit": "days",
+      "count": 14
+    }
+  },
+  {
+    "id": 2,
+    "code": "code-2",
+    "name": {
+      "short": "Product 2 title",
+      "full": "Product 2 full title"
+    },
+    "description": {
+      "short": "Short description 2"
+    },
+    "url": "http://google.com/2.html",
+    "image": "http://google.com/2.jpg",
+    "price": {
+      "current": 200
+    },
+    "category": {
+      "id": 1,
+      "title": "Category title"
+    },
+    "available": false,
+    "vendor": "Vendor name",
+    "country": "Country name",
+    "warranty": {
+      "count": 24
+    }
+  },
+  {
+    "id": 3,
+    "code": "code-3",
+    "name": {
+      "short": "Product 3 title",
+      "full": "Product 3 full title"
+    },
+    "description": {
+      "short": "Short description 3"
+    },
+    "url": "http://google.com/3.html",
+    "image": "http://google.com/3.jpg",
+    "price": {
+      "old": 320,
+      "current": 300
+    },
+    "category": {
+      "id": 1,
+      "title": "Category title"
+    },
+    "available": true,
+    "vendor": "Vendor name",
+    "country": "Country name",
+    "warranty": {
+      "count": 24
+    }
+  }
+]

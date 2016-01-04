@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "parent": 0,
+    "title": "Main cat"
+  },
+  {
+    "id": 2,
+    "parent": 1,
+    "title": "Sub cat"
+  },
+  {
+    "id": 3,
+    "parent": 0,
+    "title": "Main cat 2"
+  }
+]
