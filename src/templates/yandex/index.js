@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import Moment from 'moment';
 import Catalog from './components/Catalog';
 
 // Custom attributes for xml
