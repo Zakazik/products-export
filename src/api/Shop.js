@@ -12,19 +12,21 @@ import S from 'string';
 export default class Shop {
     /**
      * Get all products
+     *
+     * @returns {Array}  of products
      */
     static async getProducts() {
-        const query = 'SELECT p.*, c.pro_cat_title_one, c.pro_cat_title' +
-                      '  FROM products p' +
-                      '  LEFT JOIN pro_categories c ON p.pro_cat_id = c.id' +
-                      '  WHERE p.trash = "N"';
+        const query = 'SELECT p.*, c.pro_cat_title_one, c.pro_cat_title'
+                      + ' FROM products p'
+                      + ' LEFT JOIN pro_categories c ON p.pro_cat_id = c.id'
+                      + ' WHERE p.trash = "N"';
         const products = await db.query(query);
 
-        let result = [];
-        for (let product of products) {
-            let title = product.pro_cat_title_one + ' ' + product.pro_title;
-            let url   = Config.get('shop.params.productUrlTpl').replace('{code}', product.pro_url);
-            let image = Config.get('shop.params.imageUrlTpl').replace('{file}', product.pro_sml_image);
+        const result = [];
+        for (const product of products) {
+            const title = `${product.pro_cat_title_one} ${product.pro_title}`;
+            const url   = Config.get('shop.params.productUrlTpl').replace('{code}', product.pro_url);
+            const image = Config.get('shop.params.imageUrlTpl').replace('{file}', product.pro_sml_image);
 
             try {
                 result.push({
@@ -49,7 +51,9 @@ export default class Shop {
                     available: [1, 4].indexOf(product.mit_pro) > -1,
                     vendor: await this.getProp(Config.get('shop.params.vendorId'), product.id, product.pro_cat_id),
                     country: await this.getProp(Config.get('shop.params.countryId'), product.id, product.pro_cat_id),
-                    warranty: this.parseWarranty(await this.getProp(Config.get('shop.params.warrantyId'), product.id, product.pro_cat_id))
+                    warranty: this.parseWarranty(
+                        await this.getProp(Config.get('shop.params.warrantyId'), product.id, product.pro_cat_id)
+                    )
                 });
             } catch (error) {
                 Logger.error(`Product "${product.id}": ${error.message}`);
@@ -77,9 +81,12 @@ export default class Shop {
         if (prop === null) {
             return null;
         }
-        const propRow   = 'p' + pad(prop.id, 3);
-        const propTable = 'pro' + pad(catId, 3);
-        const query     = `SELECT d.value FROM ${propTable} pp LEFT JOIN dictionary d ON d.id = pp.${propRow} WHERE pp.product_id = ${productId}`;
+        const propRow   = `p${pad(prop.id, 3)}`;
+        const propTable = `pro${pad(catId, 3)}`;
+        const query     = `SELECT d.value `
+                        + ` FROM ${propTable} pp `
+                        + ` LEFT JOIN dictionary d ON d.id = pp.${propRow}`
+                        + ` WHERE pp.product_id = ${productId}`;
         const propValue = await db.queryOne(query);
         if (propValue === null) {
             return null;

@@ -13,6 +13,6 @@ Exporter.run({
     Logger.info('Export FINISH');
     process.exit(0);
 }).catch((error) => {
-    Logger.error('Export ERROR: ' + error.message);
+    Logger.error(`Export ERROR: ${error.message}`);
     process.exit(1);
 });

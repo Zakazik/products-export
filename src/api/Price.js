@@ -15,16 +15,19 @@ export default class Price {
      * @returns {number} Price in UAH
      */
     static async get(price, currency) {
-        let exchange = await Price.getExchange();
+        const exchange = await Price.getExchange();
 
-        var rate = 1;
+        let rate;
         switch (currency) {
-        case 1:
-            rate = exchange.usd;
-            break;
-        case 3:
-            rate = exchange.eur;
-            break;
+            case 1:
+                rate = exchange.usd;
+                break;
+            case 3:
+                rate = exchange.eur;
+                break;
+            default:
+                rate = 1;
+                break;
         }
 
         return Math.ceil(price * rate);
@@ -33,11 +36,11 @@ export default class Price {
     /**
      * Get current exchange rate
      *
-     * @returns {Promise}
+     * @returns {Promise}  Exchange rate object
      */
     static getExchange() {
         return new Promise((resolve, reject) => {
-            if (exchange != null) {
+            if (exchange !== null) {
                 return resolve(exchange);
             }
 

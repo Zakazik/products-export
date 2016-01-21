@@ -13,7 +13,7 @@ ReactInjection.DOMProperty.injectDOMPropertyConfig({
 });
 
 export function yandex({ shop = {}, products = [], date = '' } = {}) {
-    if (date == '') {
+    if (date === '') {
         date = Moment().format('YYYY-MM-DD HH:mm');
     }
 
@@ -21,7 +21,9 @@ export function yandex({ shop = {}, products = [], date = '' } = {}) {
         <Catalog { ...shop } offers={ products } date={ date } />
     );
 
-    return '<?xml version="1.0" encoding="utf-8"?>' +
-           '<!DOCTYPE yml_catalog SYSTEM "shops.dtd">' +
-           catalog;
+    /* eslint-disable prefer-template */
+    return '<?xml version="1.0" encoding="utf-8"?>'
+           + '<!DOCTYPE yml_catalog SYSTEM "shops.dtd">'
+           + catalog;
+    /* eslint-enable prefer-template */
 }

@@ -4,7 +4,7 @@ import Offer from './Offer';
 export default class OfferList extends Component {
     static propTypes = {
         offers: PropTypes.array.isRequired
-    }
+    };
 
     render() {
         const offers = this.props.offers.map((offer, i) => {

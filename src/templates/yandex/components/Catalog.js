@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Moment from 'moment';
 import OfferList from './OfferList';
 
 export default class Catalog extends Component {

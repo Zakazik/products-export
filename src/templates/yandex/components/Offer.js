@@ -12,12 +12,12 @@ export default class Offer extends Component {
         }).isRequired,
         currencyId: PropTypes.string,
         available: PropTypes.bool
-    }
+    };
 
     static defaultProps = {
         available: true,
         currencyId: 'UAH'
-    }
+    };
 
     render() {
         const { id, available, name, price, currencyId } = this.props;
@@ -26,7 +26,7 @@ export default class Offer extends Component {
             <offer id={ id } available={ available }>
                 <name>{ name.full }</name>
                 <price>{ price.current }</price>
-                <currencyId>{currencyId }</currencyId>
+                <currencyId>{ currencyId }</currencyId>
             </offer>
         );
     }

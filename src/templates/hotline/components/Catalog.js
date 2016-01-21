@@ -9,7 +9,7 @@ export default class Catalog extends Component {
         date: PropTypes.string.isRequired,
         offers: PropTypes.array.isRequired,
         categories: PropTypes.array.isRequired
-    }
+    };
 
     render() {
         const { name, hotlineId, offers, categories, date } = this.props;

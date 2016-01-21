@@ -5,7 +5,7 @@ export default class Category extends Component {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         parent: PropTypes.number.isRequired
-    }
+    };
 
     render() {
         const { id, title, parent } = this.props;

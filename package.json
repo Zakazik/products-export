@@ -54,6 +54,7 @@
     "chai": "^3.4.1",
     "debug": "^2.2.0",
     "eslint": "^1.10.3",
+    "eslint-config-hope": "^1.0.2",
     "eslint-plugin-react": "^3.13.1",
     "mocha": "^2.3.4"
   }

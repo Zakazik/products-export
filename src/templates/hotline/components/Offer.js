@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 export default class Offer extends Component {
     static propTypes = {
         id: PropTypes.number.isRequired,
+        code: PropTypes.string,
+        image: PropTypes.string,
         name: PropTypes.shape({
             short: PropTypes.string.isRequired,
             full: PropTypes.string.isRequired
@@ -22,19 +24,26 @@ export default class Offer extends Component {
         country: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         available: PropTypes.bool
-    }
+    };
 
     static defaultProps = {
         available: true
-    }
+    };
 
     render() {
-        const { id, code, category, vendor, description, url, image, available, name, price, warranty, country } = this.props;
+        const { id, code, category, vendor, description,
+            url, image, available, name, price, warranty, country } = this.props;
         const elCode = (code !== null) ? (<code>{ code }</code>) : null;
         const stock  = available ? 'В наличии' : 'Под заказ';
-        const elWarranty = (warranty === null) ? null : ((warranty.unit == 'days')
-            ? (<guarantee type="manufacturer" unit="days">{ warranty.count }</guarantee>)
-            : (<guarantee type="manufacturer">{ warranty.count }</guarantee>));
+
+        let elWarranty;
+        if (warranty === null) {
+            elWarranty = null;
+        } else if (warranty.unit === 'days') {
+            elWarranty = <guarantee type="manufacturer" unit="days">{ warranty.count }</guarantee>;
+        } else {
+            elWarranty = <guarantee type="manufacturer">{ warranty.count }</guarantee>;
+        }
 
         return (
             <item>

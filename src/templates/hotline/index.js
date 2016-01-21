@@ -12,14 +12,21 @@ ReactInjection.DOMProperty.injectDOMPropertyConfig({
 });
 
 export function hotline({ shop = {}, products = [], categories = [], date = '' } = {}) {
-    if (date == '') {
+    if (date === '') {
         date = Moment().format('YYYY-MM-DD HH:mm');
     }
 
     const catalog = ReactDOM.renderToStaticMarkup(
-        <Catalog { ...shop } offers={ products } categories={ categories } date={ date } />
+        <Catalog
+            { ...shop }
+            offers={ products }
+            categories={ categories }
+            date={ date }
+        />
     );
 
-    return '<?xml version="1.0" encoding="utf-8"?>' +
-           catalog;
+    /* eslint-disable prefer-template */
+    return '<?xml version="1.0" encoding="utf-8"?>'
+           + catalog;
+    /* eslint-enable prefer-template */
 }

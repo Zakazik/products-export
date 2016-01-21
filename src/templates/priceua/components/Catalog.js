@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Moment from 'moment';
 import CategoryList from './CategoryList';
 import OfferList from './OfferList';
 
@@ -9,7 +8,7 @@ export default class Catalog extends Component {
         date: PropTypes.string.isRequired,
         offers: PropTypes.array.isRequired,
         categories: PropTypes.array.isRequired
-    }
+    };
 
     render() {
         const { name, date, offers, categories } = this.props;

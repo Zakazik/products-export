@@ -22,7 +22,7 @@ export default class Exporter {
 
         // 3. Export with all templates
         const exports = config.exports;
-        for (let tpl of exports) {
+        for (const tpl of exports) {
             if (!templates.hasOwnProperty(tpl.id)) {
                 Logger.error(`Template "${tpl.id}" not found`);
                 continue;
