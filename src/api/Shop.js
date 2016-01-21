@@ -46,7 +46,7 @@ export default class Shop {
                         id: product.pro_cat_id,
                         title: product.pro_cat_title
                     },
-                    available: (product.mit_pro == 1),
+                    available: [1, 4].indexOf(product.mit_pro) > -1,
                     vendor: await this.getProp(Config.get('shop.params.vendorId'), product.id, product.pro_cat_id),
                     country: await this.getProp(Config.get('shop.params.countryId'), product.id, product.pro_cat_id),
                     warranty: this.parseWarranty(await this.getProp(Config.get('shop.params.warrantyId'), product.id, product.pro_cat_id))
